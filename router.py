@@ -5,11 +5,14 @@ personas = {
 }
 
 def route_post_to_bots(post):
+    post = post.lower()  
+
+    matched = []
     if "AI" in post or "technology" in post:
-        return ["bot_a"]
-    elif "nature" in post:
-        return ["bot_b"]
-    elif "money" in post or "business" in post:
-        return ["bot_c"]
-    else:
-        return []
+        matched.append("bot_a")
+    if"nature" in post:
+        matched.append("bot_b")
+    if "money" in post or "business" in post:
+        matched.append("bot_c")
+    
+    return matched
